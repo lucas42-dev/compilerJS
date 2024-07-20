@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <title>Document</title>
+</head>
+
+<style>
+    body{
+        font-family: arial, sans-serif;
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .container{
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            padding-top: 50px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    textarea{
+        height: 200px;
+        padding: 10px;
+        margin-top: 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        resize: none;
+        font-size: 16px;
+    }
+
+    button{
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    button:hover{
+        opacity: 0.8;
+    }
+
+    .result{
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #555;
+        color: #fff;
+    }
+
+    footer{
+        text-align: center;
+        margin-top: 20px;
+        color: #aaa;
+        background-color: #111;
+        padding: 10px 0;
+    }
+
+    footer a{
+        color: #aaa;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+
+    footer a:hover{
+        color: #fff;
+    }
+
+    @media (max-width: 600px){
+        .container{
+            width: 95%;
+        }
+    }
+    
+</style>
+
+<body>
+    <div class="container">
+        <h1>Compilador de codigo JS</h1> <!-- Titulo principal da pagina-->
+        <textarea id="codeInput" placeholder="Digite seu código aqui..."></textarea><!--Area de texcto para entrada do codigo-->
+        
+        <button onclick="compileCode()">Compilar</button><!--Botão para compilar o codigo-->
+        
+        <div class="result" id="resultOutput"></div> <!-- Div para mostrar o resultado-->
+    </div>
+    
+    <footer> <!--Texto de rodapé-->
+        Desenvolvido por Lucas Meireles
+        <a href="" target="_blank"> <!--link para linkedin com icone-->
+            <i class="fab fa-linkedin"></i>
+        </a>
+         
+        <a href="" target="_blank"> <!--link para Github com icone-->
+            <i class="fab fa-github"></i>
+        </a>
+
+        <a href="" target="_blank"> <!--link para instagram com icone-->
+            <i class="fab fa-instagram"></i>
+        </a>
+    </footer>
+    
+    <script>
+        function compileCode(){
+            const code = document.getElementById('codeInput').value
+            try{
+                eval(code)
+                document.getElementById('resultOutput').innerHTML = 'Código compilado com sucesso'
+
+            }
+            catch(error){
+              document.getElementById('resultOutput').innerHTML = 'Erro ao compilar o código:' +error.message;
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+</body>
+</html>
